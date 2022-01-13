@@ -118,6 +118,6 @@ non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 Jos lehmä osaisi lentää olis sen suunnitellut bioDI  
 
-*Teemu Teekkari | Tiedotusmestari, Inkubio ry | tiedotus@inkubio.fi*
+*Teemu Teekkari | Mouho, Inkubio ry | example@example.com*
 
 
