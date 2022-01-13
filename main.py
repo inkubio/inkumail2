@@ -1,6 +1,7 @@
 import argparse
 import configparser
 import smtplib
+import os
 
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -39,6 +40,10 @@ def create_html(output_file: str = "output.html", template_file: str = "template
     # Change back to string and make css inline
     output_html = template_soup.prettify()
     output_html = transform(output_html)
+
+    # Create output file if not does not exist
+    if not os.path.exists("output"):
+        os.makedirs("output")
 
     # Write modified data to file
     with open(f"output/{output_file}", "w", encoding="utf-8", errors="xmlcharrefreplace") as output_file:
