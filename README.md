@@ -57,7 +57,8 @@ The top level heading is used as the email subject (Viikkomaili x/yy, in the exa
 
 
 In addition to basic markdown, `[TOC]` marker can be used to include table of contents
-in the desired spot. Table of contents includes all the headings between h2-h6.
+in the desired spot. Table of contents includes all the headings between h2-h6. 
+If the heading is bolded using markdown syntax the corresponding title is bolded in the table of contents.
 
 Guide for basic markdown syntax can be found [here](https://www.markdownguide.org/basic-syntax/).
 
