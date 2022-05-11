@@ -29,6 +29,14 @@ def create_html(output_file: str = "output.html", template_file: str = "template
     content_html = markdown(content, extensions=["attr_list", TocExtension(title="Sisältö", toc_depth="2-6")])
     content_soup = BeautifulSoup(content_html, "html.parser")
 
+    all_links = content_soup.find_all("a", href=True)
+    for a in all_links:
+        if a["href"].startswith("#"):
+            heading = content_soup.find(id=a["href"][1:])
+            if heading.find("strong") is not None:
+                a.wrap(template_soup.new_tag("strong"))
+
+
     # Find and insert the content to the template
     content_div = template_soup.find("div", {"id": "content"})
     content_div.contents = content_soup
@@ -41,7 +49,7 @@ def create_html(output_file: str = "output.html", template_file: str = "template
     output_html = template_soup.prettify()
     output_html = transform(output_html)
 
-    # Create output file if not does not exist
+    # Create output dir if it does not exist
     if not os.path.exists("output"):
         os.makedirs("output")
 
