@@ -17,12 +17,12 @@ from premailer import transform
 def create_html(output_file: str = "output.html", template_file: str = "template.html",
                 markdown_file: str = "example.md") -> (str, str, str):
     # Read template file to memory and convert to soup
-    with open(template_file, "r") as f:
+    with open(template_file, "r", encoding="utf-8") as f:
         template = f.read()
     template_soup = BeautifulSoup(template, "html.parser")
 
     # Read content file to memory.
-    with open(markdown_file, "r") as f:
+    with open(markdown_file, "r", encoding="utf-8") as f:
         content = f.read()
 
     # Convert markdown -> html -> soup
